@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<com.android.launcher2.DragLayer
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:launcher="http://schemas.android.com/apk/res/com.android.launcher"
+
+    android:id="@+id/drag_layer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="false">
+
+    <include layout="@layout/workspace"
+        android:id="@+id/workspace"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <include layout="@layout/qsb_bar"
+        android:id="@+id/qsb_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qsb_bar_height"
+        android:layout_gravity="top" />
+
+
+
+    <include layout="@layout/apps_customize_pane"
+        android:id="@+id/apps_customize_pane"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible" />
+
+    <!-- my change: ADD hotseat-->
+    <include layout="@layout/hotseat"
+        android:id="@+id/hotseat"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_bar_height_plus_padding"
+        android:orientation="horizontal" 
+        android:layout_gravity="bottom" />
+    <!-- end my change -->
+    <!-- My change CUSTOM: defines in res/laout-land/launcher.xml not work. Define hotseat below.-->
+    <!-- add to debug:android:background="@color/darkkhaki"-->
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <LinearLayout 
+            android:id="@+id/workspace_left_btn_area"
+            android:layout_gravity="left|center_vertical"
+            android:layout_width="wrap_content" 
+            android:layout_height="match_parent" 
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/workspace_left_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginLeft="3.0dip"
+                android:background="@drawable/left_button_effects"
+                android:onClick="onClickPrevScreenButton"/>
+        </LinearLayout>
+        <LinearLayout 
+            android:background="@color/white"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content" 
+            android:layout_height="match_parent" 
+            android:layout_weight="50"
+            android:visibility="invisible">
+        </LinearLayout>
+        <LinearLayout 
+            android:id="@+id/workspace_right_btn_area"
+            android:layout_gravity="left|center_vertical"
+            android:layout_width="wrap_content" 
+            android:layout_height="match_parent" 
+            android:gravity="right" 
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/workspace_right_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginLeft="3.0dip"
+                android:background="@drawable/right_button_effects"
+                android:onClick="onClickNextScreenButton"/>
+        </LinearLayout>
+    </LinearLayout>    
+
+
+
+
+</com.android.launcher2.DragLayer>
